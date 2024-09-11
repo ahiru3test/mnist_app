@@ -1,3 +1,4 @@
+#python 3.8.16
 from flask import Flask, request, render_template, send_file
 import yfinance as yf
 from datetime import datetime
