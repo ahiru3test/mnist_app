@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
-import os
+# import os
 
 app = Flask(__name__)
 
@@ -57,9 +57,9 @@ def plot():
     # モデルの訓練
     model.fit(x_train, y_train, batch_size=1, epochs=1)
 
-    # モデルの保存
-    savefile = os.path.join(os.path.dirname(__file__), "kabuka.h5")
-    model.save(savefile)
+    # モデルの保存(ローカルのみ)
+    # savefile = os.path.join(os.path.dirname(__file__), "kabuka.h5")
+    # model.save(savefile)
 
     # 検証用データの作成
     test_data = scaled_data[training_data_len - ref_days:, :]
