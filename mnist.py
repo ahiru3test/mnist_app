@@ -6,6 +6,13 @@ from tensorflow.keras.preprocessing import image
 
 import numpy as np
 
+### 1.必要なライブラリのインポート
+import yfinance as yf
+from datetime import datetime
+import matplotlib.pyplot as plt
+# import math
+import warnings
+warnings.filterwarnings('ignore')
 
 classes = ["0","1","2","3","4","5","6","7","8","9"]
 image_size = 28
