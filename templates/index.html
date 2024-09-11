@@ -1,44 +1,27 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Number Classifier</title>
-    <link rel="stylesheet" href="./static/stylesheet.css">
+    <title>Matplotlib Plot</title>
 </head>
 <body>
-    <header>   
-        <img class="header_img" src="https://aidemyexstorage.blob.core.windows.net/aidemycontents/1621500180546399.png" alt="Aidemy">
-        <a class="header-logo" href="#">Number Classifier</a>
-    </header>
-
-    <div class="main">    
-        <h2> AIが送信された画像の数字を識別します</h2>
-        <p>画像を送信してください</p>
-        <form method="POST" enctype="multipart/form-data">
-            <input class="file_choose" type="file" name="file">
-            <input class="btn" value="submit!" type="submit">
-
-            <!-- add start -->
-            <label for="from_year">取得年数:</label>
-            <input type="number" id="from_year" name="from_year" value="3" required>
-            
-            <label for="ref_days">参照日数:</label>
-            <input type="number" id="ref_days" name="ref_days" value="60" required>
-            
-            <label for="code">銘柄コード:</label>
-            <input type="text" id="code" name="code" value="9861" required>
-            <!-- add end -->
-
-
-        </form>
-        <div class="answer">{{answer}}</div>
-    </div>
-
-    <footer>
-        <img class="footer_img" src="https://aidemyexstorage.blob.core.windows.net/aidemycontents/1621500180546399.png" alt="Aidemy">
-        <small>&copy; 2019 Aidemy, inc.</small>   
-    </footer>
+    <h1>Matplotlib Plot in Flask</h1>
+    <form action="/plot" method="post">
+        <label for="from_year">取得データ年数:</label>
+        <input type="text" id="from_year" name="from_year" value="3"><br>
+        
+        <label for="ref_days">訓練日数:</label>
+        <input type="text" id="ref_days" name="ref_days" value="60"><br>
+        
+        <label for="code">銘柄コード:</label>
+        <input type="text" id="code" name="code" value="9861"><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    {% if show_plot %}
+    <h2>Generated Plot:</h2>
+    <img src="{{ plot_url }}" alt="Plot">
+    {% endif %}
 </body>
 </html>
