@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, make_response
+from flask import Flask, request, render_template, send_file
 import yfinance as yf
 from datetime import datetime
 import matplotlib.pyplot as plt
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', show_plot=False)
 
 @app.route('/plot', methods=['POST'])
 def plot():
@@ -30,7 +30,8 @@ def plot():
     img = io.BytesIO()
     fig.savefig(img, format='png')
     img.seek(0)
-    return make_response(img.getvalue(), 200, {'Content-Type': 'image/png'})
+
+    return send_file(img, mimetype='image/png')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
