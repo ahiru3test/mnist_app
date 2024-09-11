@@ -58,7 +58,7 @@ def plot():
     model.fit(x_train, y_train, batch_size=1, epochs=1)
 
     # モデルの保存
-    savefile = os.path.join(os.path.dirname(__file__), "kabuka_o.h5")
+    savefile = os.path.join(os.path.dirname(__file__), "kabuka.h5")
     model.save(savefile)
 
     # 検証用データの作成

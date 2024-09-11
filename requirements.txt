@@ -29,6 +29,7 @@ protobuf==3.12.4
 PyYAML==5.4.1
 python-dotenv==0.14.0
 requests==2.25.1
+scikit-learn
 scipy==1.4.1
 six==1.15.0
 tensorboard==2.3.0
