@@ -19,6 +19,19 @@
         <form method="POST" enctype="multipart/form-data">
             <input class="file_choose" type="file" name="file">
             <input class="btn" value="submit!" type="submit">
+
+            <!-- add start -->
+            <label for="from_year">取得年数:</label>
+            <input type="number" id="from_year" name="from_year" value="3" required>
+            
+            <label for="ref_days">参照日数:</label>
+            <input type="number" id="ref_days" name="ref_days" value="60" required>
+            
+            <label for="code">銘柄コード:</label>
+            <input type="text" id="code" name="code" value="9861" required>
+            <!-- add end -->
+
+
         </form>
         <div class="answer">{{answer}}</div>
     </div>
